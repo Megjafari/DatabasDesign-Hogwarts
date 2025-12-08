@@ -1,0 +1,23 @@
+
+
+CREATE TABLE Student (
+    StudentID INTEGER PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    House VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Course (
+    CourseID INTEGER PRIMARY KEY,
+    Title VARCHAR(100) NOT NULL,
+    Professor VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Enrollment (
+    EnrollmentID INTEGER PRIMARY KEY,
+    StudentID INTEGER NOT NULL,
+    CourseID INTEGER NOT NULL,
+    Grade CHAR(1),
+
+    FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
+    FOREIGN KEY (CourseID) REFERENCES Course(CourseID)
+);
